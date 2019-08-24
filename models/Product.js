@@ -13,7 +13,8 @@ module.exports = function (sequelize, DataTypes) {
       },
       stock_quantity: {
           type: DataTypes.INTEGER,
-      }
+      },
     });
+    
     return Product;
   };
