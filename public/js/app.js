@@ -114,31 +114,3 @@ $(document).ready( function () {
 
   
 });
-
-$(".btnPurchase").on("click", function (){
-  
-  for(let i=0; i< cart.length; i++){
-    let inCartnow = cart[i].incart ;
-    let inStocknow = cart[i].instock ; 
-    let newStock = function (a,b){
-      return a - b;
-    }
-     stockUpdate= newStock(inStocknow, inCartnow)
-    $.ajax({
-      url: `/api/products/${cart[i].id}`,
-      type: "PUT",
-      data: `stock_quantity= ${stockUpdate}`
-    })
-    .then(function(data) {
-      $('.tbodypage').empty();
-      renderItems(data);
-    })
-    .catch(function(data){
-      console.log(data);
-    })
-    $('.modal-body').empty();
-    $('.modal-body').append("Purcchased!");
-
-  }
-  cart= [];
-});
