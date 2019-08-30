@@ -76,41 +76,6 @@ $(document).ready( function () {
    
   });
 
-  $(".btncart").on("click", function() {
-    $(".modal-body").empty();
-
-    $('.modal-body').append (`<table class="table">
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col">Product Id</th>
-        <th scope="col">Product Name</th>
-        <th scope="col">Department</th>
-        <th scope="col">Cost (USD)</th>
-        <th scope="col">Quanity</th>
-      </tr>
-    </thead>
-    <tbody class="tbodymodal table-body"></tbody>
-  </table>
-  <div class="totalCart"></div>`);
-
-    let totalcost = 0;
-    for (let i = 0; i < cart.length; i++) {
-      totalcost += (parseFloat(cart[i].price)*parseFloat(cart[i].incart.padStart(3,0)))
-      console.log(cart[i]);
-
-      $(".tbodymodal").append(`<tr>
-    <td class="cartid">${cart[i].id}</td>
-          <td class="cart-product_name">${cart[i].name}</td>
-          <td class="cart-department_name">${cart[i].department}</td>
-          <td class="cart-price">$${cart[i].price}</td>
-          <td class="cat-quantity">${cart[i].incart}</td>
-          </tr>`);
-          
-    }
-    $(".totalCart").empty();
-    $(".totalCart").append(`<h4>TOTAL PRICE:    $${totalcost}</h4>`)
-    $(".modal").modal("show");
-  });
-
-  
 });
+
+/* The code I have left would be to fill the cart up and compute the total of the progucts in the cart*/
